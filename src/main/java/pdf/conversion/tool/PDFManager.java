@@ -26,9 +26,9 @@ class PDFManager {
         return text;
     }
 
-    String getFilePath(){
+    static String getFilePath(){
         String str = System.getProperty("user.dir");
-        return str.substring(0, str.indexOf("pdf-converter"));
+        return str + "/";
     }
 
     File[] isPDF(File[] listOfFiles) {
@@ -42,8 +42,7 @@ class PDFManager {
     }
 
     static void writeStringToFile(String files, String pdfToText) throws IOException {
-        String output = System.getProperty("user.dir");
-        output = output.substring(0, output.indexOf("pdf-converter"));
+        String output = getFilePath();
         new File(output + files + ".txt");
 
         String fileName = (files.contains(".pdf")) ? files.substring(0, files.indexOf(".pdf")) : files.substring(0, files.indexOf(".PDF"));

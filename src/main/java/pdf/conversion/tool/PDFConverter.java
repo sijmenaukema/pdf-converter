@@ -35,7 +35,7 @@ public class PDFConverter {
             System.exit(0);
         }
         catch (IOException e){
-            System.out.println("Caught");
+             e.printStackTrace();
         }
     }
 }
