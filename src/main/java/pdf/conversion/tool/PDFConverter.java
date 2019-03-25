@@ -22,8 +22,9 @@ public class PDFConverter {
                 LOGGER.info(String.format("processing file %s", fileName));
 
                 String pdfToText = pdfManager.pdfToText(filePath + fileName);
+                pdfToText = pdfToText.replaceAll("\\s", " ");
 
-                if (pdfToText == null) {
+                if (pdfToText.isEmpty()) {
                     LOGGER.info(String.format("PDF to Text Conversion of file %s failed.", fileName));
                 } else {
                     LOGGER.info(String.format("The text parsed from the %s", fileName));
